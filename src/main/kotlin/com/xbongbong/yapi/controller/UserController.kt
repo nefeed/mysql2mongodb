@@ -1,6 +1,6 @@
 package com.xbongbong.yapi.controller
 
-import com.xbongbong.yapi.entity.User
+import com.xbongbong.yapi.entity.MySqlUser
 import com.xbongbong.yapi.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -20,14 +20,14 @@ class UserController
 
     @RequestMapping("/create", method = arrayOf(RequestMethod.POST))
     @ResponseBody
-    fun create(@RequestBody user: User): User = userRepository.save(user)
+    fun create(@RequestBody mySqlUser: MySqlUser): MySqlUser = userRepository.save(mySqlUser)
 
     @GetMapping("/{name}")
     fun findByLastName(@PathVariable name: String) = userRepository.findByLastName(name)
 
     @PutMapping("/update")
-    fun updateUser(@RequestBody user: User) {
-        userRepository.save(user)
+    fun updateUser(@RequestBody mySqlUser: MySqlUser) {
+        userRepository.save(mySqlUser)
     }
 
     @DeleteMapping("/del/{id}")

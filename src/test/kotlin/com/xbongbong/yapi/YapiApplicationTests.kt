@@ -11,6 +11,7 @@ class YapiApplicationTests {
 
 	@Test
 	fun contextLoads() {
+		println("Test")
 	}
 
 }

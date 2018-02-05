@@ -11,7 +11,7 @@ import javax.persistence.*
  */
 @Entity
 @Table(name = "yapi_user")
-data class User (
+data class MySqlUser(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0,

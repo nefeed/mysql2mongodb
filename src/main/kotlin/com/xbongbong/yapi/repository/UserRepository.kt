@@ -1,6 +1,6 @@
 package com.xbongbong.yapi.repository
 
-import com.xbongbong.yapi.entity.User
+import com.xbongbong.yapi.entity.MySqlUser
 import org.springframework.data.jpa.repository.JpaRepository
 
 /**
@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository
  * @mail    nefeed@163.com
  * @time    2018-02-05 16:33
  */
-interface UserRepository: JpaRepository<User, Long> {
-    fun findByLastName(name: String): List<User>
+interface UserRepository: JpaRepository<MySqlUser, Long> {
+    fun findByLastName(name: String): List<MySqlUser>
 }
