@@ -1,0 +1,12 @@
+server:
+  port: 3000
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.10.100:3306/db_xbb_dingtalk?autoReconnect=true&useSSL=false
+    username: ms2
+    password: ms2.com.cn
+  # Hibernate ddl auto (create, create-drop, update)
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

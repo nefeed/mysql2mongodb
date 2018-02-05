@@ -1,0 +1,38 @@
+package com.xbongbong.yapi.controller
+
+import com.xbongbong.yapi.entity.User
+import com.xbongbong.yapi.repository.UserRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
+
+/**
+ * 用户接口
+ * @author  章华隽
+ * @mail    nefeed@163.com
+ * @time    2018-02-05 16:38
+ */
+@RestController
+class UserController
+    @Autowired constructor(val userRepository: UserRepository) {
+
+    @GetMapping("/")
+    fun findAll() = userRepository.findAll()
+
+    @RequestMapping("/create", method = arrayOf(RequestMethod.POST))
+    @ResponseBody
+    fun create(@RequestBody user: User): User = userRepository.save(user)
+
+    @GetMapping("/{name}")
+    fun findByLastName(@PathVariable name: String) = userRepository.findByLastName(name)
+
+    @PutMapping("/update")
+    fun updateUser(@RequestBody user: User) {
+        userRepository.save(user)
+    }
+
+    @DeleteMapping("/del/{id}")
+    @ResponseBody
+    fun deleteEmployee(@PathVariable id: Long) {
+        userRepository.delete(id)
+    }
+}
