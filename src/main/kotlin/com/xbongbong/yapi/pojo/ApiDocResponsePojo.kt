@@ -6,9 +6,9 @@ package com.xbongbong.yapi.pojo
  * @mail    nefeed@163.com
  * @time    2018-02-23 18:00
  */
-data class ApiDocResponsePojo(
-        var key: String = "",
-        var name: String = "",
-        var type: String = "",
-        var memo: String = ""
-)
+class ApiDocResponsePojo {
+    var key: String = ""
+    var name: String = ""
+    var type: String = ""
+    var memo: String = ""
+}

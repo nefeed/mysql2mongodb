@@ -30,5 +30,5 @@ interface MongoUserDao {
      * 删除对象
      * @param id
      */
-    fun deleteById(id: Long)
+    fun deleteById(id: Int)
 }

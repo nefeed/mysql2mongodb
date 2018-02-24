@@ -3,8 +3,10 @@ package com.xbongbong.yapi
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONArray
 import com.xbongbong.yapi.entity.MySqlApiDoc
+import com.xbongbong.yapi.repository.InterfaceRepository
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.io.ClassPathResource
 import org.springframework.test.context.junit4.SpringRunner
@@ -26,17 +28,12 @@ class MySqlApiDocTest {
 //    val apiDocRepository: ApiDocRepository? = null
 //
 //    @Test
-//    fun createTest() {
-//        val it = MySqlUser()
-//        it.lastName = "lastName"
-//        it.firstName = "firstName"
-//        println(userRepository!!.save(it).toString())
-//    }
-//
-//    @Test
 //    fun listTest() {
 //        println(apiDocRepository!!.findAll().toString())
 //    }
+
+    @Autowired
+    val interfaceRepository: InterfaceRepository? = null
 
     @Test
     fun readJsonFile() {
@@ -61,5 +58,9 @@ class MySqlApiDocTest {
         println("plus list Length:${list.size}")
         val newList: List<MySqlApiDoc> = JSON.parseArray(listStr, MySqlApiDoc::class.java)
         println("mew list length:${newList.size}")
+
+        for (it in newList) {
+            interfaceRepository!!.transferApiDoc2Interface(it)
+        }
     }
 }

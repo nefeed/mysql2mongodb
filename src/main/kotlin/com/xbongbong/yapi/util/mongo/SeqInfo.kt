@@ -20,5 +20,5 @@ data class SeqInfo(
         val collName: String,
         // 序列值
         @Field
-        val seqId: Long
+        val seqId: Int
 )

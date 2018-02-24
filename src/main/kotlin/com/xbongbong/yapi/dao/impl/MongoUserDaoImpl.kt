@@ -39,7 +39,7 @@ class MongoUserDaoImpl @Autowired constructor(val mongoTemplate: MongoTemplate) 
         // mongoTemplate.updateMulti(query,update,MongoUser.class);
     }
 
-    override fun deleteById(id: Long) {
+    override fun deleteById(id: Int) {
         val query = Query(Criteria.where("id").`is`(id))
         mongoTemplate.remove(query, MongoUser::class.java)
     }

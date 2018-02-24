@@ -16,7 +16,7 @@ import java.util.*
 data class MongoUser (
         @AutoIncKey
         @Id
-        var id: Long ?= null,
+        var id: Int ?= null,
 
         @Field("first_name")
         var firstName: String = "",

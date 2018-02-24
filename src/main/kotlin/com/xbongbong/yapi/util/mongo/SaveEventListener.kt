@@ -45,7 +45,7 @@ class SaveEventListener : AbstractMongoEventListener<Any>() {
      * 集合（这里用类名，就唯一性来说最好还是存放长类名）名称
      * @return 序列值
      */
-    private fun getNextId(collName: String): Long? {
+    private fun getNextId(collName: String): Int? {
         val query = Query(Criteria.where("collName").`is`(collName))
         val update = Update()
         update.inc("seqId", 1)

@@ -41,7 +41,7 @@ class MongoUserTest {
     @Test
     fun updateUser() {
         val user = MongoUser()
-        user.id = 1L
+        user.id = 1
         user.firstName = "Hello"
         user.lastName = "Kotlin"
         mongoUserDao!!.update(user)
@@ -49,7 +49,7 @@ class MongoUserTest {
 
     @Test
     fun deleteUserById() {
-        mongoUserDao!!.deleteById(1L)
+        mongoUserDao!!.deleteById(1)
     }
 
 }

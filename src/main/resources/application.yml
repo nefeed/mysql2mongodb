@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 7777
 spring:
 #  datasource:
 #    driverClassName: com.mysql.jdbc.Driver
@@ -13,4 +13,4 @@ spring:
   data:
     mongodb:
       # mongodb://name:pass@localhost:27017/test
-      uri: mongodb://localhost:27017/test
+      uri: mongodb://localhost:27017/yapi
