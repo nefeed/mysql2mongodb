@@ -1,6 +1,5 @@
 package com.xbongbong.yapi.entity
 
-import javax.persistence.*
 
 /**
  * 客户持久层类
@@ -9,13 +8,17 @@ import javax.persistence.*
  * @mail    nefeed@163.com
  * @time    2018-02-05 16:29
  */
-@Entity
-@Table(name = "yapi_user")
+//@Entity
+//@Table(name = "yapi_user")
 data class MySqlUser(
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0,
 
     var firstName: String = "",
     var lastName: String = ""
-)
+) {
+    override fun toString(): String {
+        return "MySqlUser(id=$id, firstName='$firstName', lastName='$lastName')"
+    }
+}

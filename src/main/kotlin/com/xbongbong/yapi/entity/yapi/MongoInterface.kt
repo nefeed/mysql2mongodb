@@ -16,10 +16,10 @@ import java.util.*
  * @time    2018-02-23 15:02
  */
 @Document(collection = "interface")
-data class MongoInterface (
+data class MongoInterface(
         @AutoIncKey
         @Id
-        var id: Long ?= null,
+        var id: Int? = null,
         // 默认请求方式为"POST"
         @Field
         var method: String = "POST",
@@ -34,13 +34,13 @@ data class MongoInterface (
         var path: String = "/",
         // 所属项目的id（project）
         @Field("project_id")
-        var projectId: Long = 11L,
+        var projectId: Int = 11,
         // 返回数据类型，默认"json"
         @Field("res_body_type")
         var resBodyType: String = "json",
-        // TODO 团队id？
+        // 用户id
         @Field
-        var uid: Long = 0L,
+        var uid: Int = 11,
         @Field("add_time")
         var addTime: Int = (Date().time / 1000L).toInt(),
         @Field("up_time")
@@ -67,7 +67,7 @@ data class MongoInterface (
         var status: String = "undone",
         // TODO 允许修改的团队Id？
         @Field("edit_uid")
-        var editUid: Long = 0L,
+        var editUid: Int = 0,
         @Field("__v")
         var __v: Int = 0,
         // 是否对外开放，true/false
@@ -82,4 +82,64 @@ data class MongoInterface (
         // 返回数据，json格式字符串
         @Field("res_body")
         var resBody: String = "{}"
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as MongoInterface
+
+        if (id != other.id) return false
+        if (method != other.method) return false
+        if (catId != other.catId) return false
+        if (title != other.title) return false
+        if (path != other.path) return false
+        if (projectId != other.projectId) return false
+        if (resBodyType != other.resBodyType) return false
+        if (uid != other.uid) return false
+        if (addTime != other.addTime) return false
+        if (upTime != other.upTime) return false
+        if (!Arrays.equals(reqBodyForm, other.reqBodyForm)) return false
+        if (!Arrays.equals(reqParams, other.reqParams)) return false
+        if (!Arrays.equals(reqHeaders, other.reqHeaders)) return false
+        if (!Arrays.equals(reqQuery, other.reqQuery)) return false
+        if (queryPath != other.queryPath) return false
+        if (type != other.type) return false
+        if (status != other.status) return false
+        if (editUid != other.editUid) return false
+        if (__v != other.__v) return false
+        if (apiOpened != other.apiOpened) return false
+        if (desc != other.desc) return false
+        if (reqBodyType != other.reqBodyType) return false
+        if (resBody != other.resBody) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = if (id == null) 0 else id!!.hashCode()
+        result = 31 * result + method.hashCode()
+        result = 31 * result + catId
+        result = 31 * result + title.hashCode()
+        result = 31 * result + path.hashCode()
+        result = 31 * result + projectId.hashCode()
+        result = 31 * result + resBodyType.hashCode()
+        result = 31 * result + uid.hashCode()
+        result = 31 * result + addTime
+        result = 31 * result + upTime
+        result = 31 * result + Arrays.hashCode(reqBodyForm)
+        result = 31 * result + Arrays.hashCode(reqParams)
+        result = 31 * result + Arrays.hashCode(reqHeaders)
+        result = 31 * result + Arrays.hashCode(reqQuery)
+        result = 31 * result + queryPath.hashCode()
+        result = 31 * result + type.hashCode()
+        result = 31 * result + status.hashCode()
+        result = 31 * result + editUid.hashCode()
+        result = 31 * result + __v
+        result = 31 * result + apiOpened.hashCode()
+        result = 31 * result + desc.hashCode()
+        result = 31 * result + reqBodyType.hashCode()
+        result = 31 * result + resBody.hashCode()
+        return result
+    }
+}

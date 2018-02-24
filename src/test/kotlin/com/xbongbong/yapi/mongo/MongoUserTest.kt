@@ -26,7 +26,7 @@ class MongoUserTest {
     @Test
     fun testSaveUser() {
         val user = MongoUser()
-        user.firstName = "Hello 2"
+        user.firstName = "Hello 3"
         user.lastName = "World"
         user.testArray = arrayOf("789", "123")
         mongoUserDao!!.save(user)
